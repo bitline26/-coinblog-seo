@@ -88,11 +88,58 @@ export default function PostDetail() {
     thumbnail, thumbnailEmoji, content, faq
   } = post;
 
+  const canonicalUrl = `https://onchainlab.co.kr/post/${post.slug}`;
+  const ogImage = thumbnail ? `https://onchainlab.co.kr${thumbnail}` : 'https://onchainlab.co.kr/favicon.svg';
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": metaDescription || title,
+    "url": canonicalUrl,
+    "datePublished": date,
+    "dateModified": updatedDate || date,
+    "author": { "@type": "Organization", "name": "온체인랩" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "온체인랩",
+      "url": "https://onchainlab.co.kr"
+    },
+    "image": ogImage,
+    "inLanguage": "ko"
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://onchainlab.co.kr" },
+      { "@type": "ListItem", "position": 2, "name": category, "item": `https://onchainlab.co.kr/?category=${encodeURIComponent(category)}` },
+      { "@type": "ListItem", "position": 3, "name": title, "item": canonicalUrl }
+    ]
+  };
+
   return (
     <>
       <Helmet>
         <title>{title} — 온체인랩</title>
         <meta name="description" content={metaDescription || title} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={`${title} — 온체인랩`} />
+        <meta property="og:description" content={metaDescription || title} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:site_name" content="온체인랩" />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:locale" content="ko_KR" />
+        <meta property="article:published_time" content={date} />
+        {updatedDate && <meta property="article:modified_time" content={updatedDate} />}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${title} — 온체인랩`} />
+        <meta name="twitter:description" content={metaDescription || title} />
+        <meta name="twitter:image" content={ogImage} />
+        <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
       </Helmet>
 
       <main className="container">

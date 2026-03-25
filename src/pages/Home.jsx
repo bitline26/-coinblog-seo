@@ -35,6 +35,15 @@ export default function Home() {
       <Helmet>
         <title>온체인랩 — 암호화폐 인사이트 & 투자 리서치</title>
         <meta name="description" content="비트코인, 이더리움, 선물거래, 세금, 거래소 가이드까지 — 온체인랩에서 데이터 기반으로 정리했습니다." />
+        <link rel="canonical" href="https://onchainlab.co.kr" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="온체인랩 — 암호화폐 인사이트 & 투자 리서치" />
+        <meta property="og:description" content="비트코인, 이더리움, 선물거래, 세금, 거래소 가이드까지 — 온체인랩에서 데이터 기반으로 정리했습니다." />
+        <meta property="og:url" content="https://onchainlab.co.kr" />
+        <meta property="og:site_name" content="온체인랩" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="온체인랩 — 암호화폐 인사이트 & 투자 리서치" />
+        <meta name="twitter:description" content="비트코인, 이더리움, 선물거래, 세금, 거래소 가이드까지 — 온체인랩에서 데이터 기반으로 정리했습니다." />
       </Helmet>
 
       <section className="page-hero">
