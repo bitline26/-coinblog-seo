@@ -708,10 +708,47 @@ button {
   color: var(--gold);
 }
 
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer__brand {
+  flex: 1;
+  min-width: 240px;
+}
+
+.footer__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.footer__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #666;
+  font-size: 0.82rem;
+}
+
+.footer__meta-item a {
+  color: #666;
+  transition: color 0.15s;
+}
+
+.footer__meta-item a:hover {
+  color: var(--gold);
+}
+
 .footer__copy {
   color: #444;
   padding-top: 16px;
   border-top: 1px solid #222;
+  line-height: 1.7;
 }
 
 /* ===== Breadcrumb ===== */
