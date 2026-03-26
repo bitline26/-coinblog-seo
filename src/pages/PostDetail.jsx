@@ -122,7 +122,7 @@ export default function PostDetail() {
   return (
     <>
       <Helmet>
-        <title>{title} — 온체인랩</title>
+        <title>{`${title} — 온체인랩`}</title>
         <meta name="description" content={metaDescription || title} />
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:type" content="article" />
